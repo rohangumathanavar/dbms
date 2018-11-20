@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        document.getElementByid("num").focus();
+
+</script>
+</head>
+
+<body>
+
+<center><h1>My Home</h1></center>
+<p align="right"><a href="{{url_for('logout')}}"><button>Logout</button></a> </p><br><br>
+<center><table>
+    <tr>
+        <th>rollno</th>
+        <th>student name</th>
+        <th>college phno</th>
+        <th>cetranking</th>
+         <th>branch name</th>
+         <th>college name</th>
+        <th>email</th>
+        <th>Location</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+        <td>{{i[4]}}</td>
+        <td>{{i[5]}}</td>
+         <td>{{i[6]}}</td>
+        <td>{{i[7]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+    </center>
+</body>
+</html>

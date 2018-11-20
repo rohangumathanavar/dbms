@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>adminstudent</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<p align="right"><a href="{{url_for('logout')}}"><button type="button">Logout</button></a></p><br><br>
+<form action="" method="post">
+
+
+    <center>
+        roll : <input type="text" name="rol" value="{{id}}" ><br><br>
+        <button type="submit" value=1>Search</button>
+    </center>
+<table>
+    <tr>
+        <th>rollno</th>
+        <th>sname</th>
+        <th>phno</th>
+        <th>email</th>
+        <th>cetranking</th>
+        <th>College Id</th>
+        <th>bname</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[3]}}</td>
+        <td>{{i[4]}}</td>
+        <td>{{i[5]}}</td>
+        <td>{{i[8]}}</td>
+        <td>{{i[9]}}</td>
+<td><a href="{{url_for('studentupdate',roll=i[0])}}"><button type="button">Update</button></a></td>
+        <td><a href="{{url_for('studentdelete',roll=i[0])}}"><button type="button">Delete</button></a></td>
+    </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>

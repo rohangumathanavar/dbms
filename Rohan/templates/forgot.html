@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>adminforgot</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<p align="right"><a href="{{url_for('logout')}}"><button type="button">Logout</button></a></p><br><br>
+<form action="" method="POST">
+
+{% for i in que %}
+    {{ i }}
+    {% endfor %}
+    <br>
+    Enter the Answer : <input type="text" name="ans" maxlength="30" autofocus="autofocus"><br><br>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

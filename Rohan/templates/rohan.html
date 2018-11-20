@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<p align="right"><a href="{{url_for('logout')}}"><button type="button">Logout</button></a></p><br><br>
+{{id}}
+<form action="" method="POST">
+    Enter the Roll : <input type="text" name="rol" maxlength="10" autofocus="autofocus"><br><br>
+<button  type="submit"> OK</button>
+   <!-- <a href="{{url_for('forgot',id=id)}}"><button type="button"> OK</button></a>-->
+</form>
+</body>
+</html>

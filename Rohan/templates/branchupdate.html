@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>branchupdate</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<p align="right"><a href="{{url_for('logout')}}"><button type="button">Logout</button></a></p><br><br>
+<a href="{{url_for('addbranch',id=id)}}"> <button type="button">Add branch</button></a><br><br>
+College Id : {{id}}<br><br>
+College Name : {{cname}}
+    <table>
+        <tr>
+        <th>Branch</th>
+        <th>seats</th>
+        <th>Cutoff</th>
+        <th>Fees</th>
+        </tr>
+        {% for i in data %}
+        <form action="" method="POST">
+        <tr>
+
+            <td><input type="text" name="bname" value="{{i[1]}}" maxlength="10"></td>
+             <td><input type="number" name="seats" value="{{i[2]}}" maxlength="10"></td>
+             <td><input type="number" name="cutoff" value="{{i[3]}}"maxlength="20"></td>
+             <td><input type="number" name="fees" value="{{i[4]}}"maxlength="20"></td>
+                <td> <button type="submit">Submit</button></td>
+
+        </tr>
+             </form>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

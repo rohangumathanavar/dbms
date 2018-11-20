@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<p align="right"><a href="{{url_for('logout')}}"><button type="button">Logout</button></a></p><br><br>
+<a href="{{url_for('adminaddstudent')}}"> <button type="button">Add Student</button></a>
+<form action="" method="post">
+    <center>
+        Roll_no : <input type="text" name="cet">
+        <button type="submit">Search</button>
+    </center>
+    <table>
+        <tr>
+            <th>roll</th>
+            <th>name</th>
+            <th>Rank</th>
+
+        </tr>
+        {% for i in data %}
+        <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+            <td><a href="{{url_for('admincetdelete',id=i[0])}}"><button type="button">Delete</button></a></td>
+        </tr>
+            {% endfor %}
+
+    </table>
+
+
+</form>
+
+</body>
+</html>

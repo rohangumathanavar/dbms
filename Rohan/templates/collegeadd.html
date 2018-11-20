@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>collegeadd</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<p align="right"><a href="{{url_for('logout')}}"><button type="button">Logout</button></a></p><br><br>
+<center>
+<form method="post"action="">
+    College-Id : <input type="number" name="cid" autofocus="autofocus" maxlength="10" required><br><br>
+    College-name : <input type="text" name="cname" required maxlength="50"><br><br>
+    password : <input type="text" name="pas" required maxlength="15"><br><br>
+    Location : <input type="text" name="loc" maxlength="20" required><br><br>
+    Mobile number : <input type="number" name="phno" required maxlength="10" minlength="10" pattern="[7-9]{1}[0-9]{9}"><br><br>
+    Email : <input type="email" name="email" required maxlength="50"><br><br>
+    Enter the Question : <input type="text" name="ans" maxlength="30" required><br><br>
+    Enter the answer : <input type="text" name="que" required maxlength="30"><br><br>
+    <button type="submit">Submit</button>
+</center>
+</form>
+
+</body>
+</html>

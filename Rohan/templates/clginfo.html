@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>college Info</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<p align="right"><a href="{{url_for('logout')}}"><button type="button">Logout</button></a></p><br><br>
+
+<form>
+    {% for i in data %}
+    College_id : <input type="number" value={{i[0]}} name="id"><br><br>
+    College_name : <input type="text"  value={{i[1]}} name= "cname"><br><br>
+    Loc : <input type="text"  value={{i[3]}} name="loc"><br><br>
+    Phno : <input type="number"  value={{i[4]}} name="phno"><br><br>
+    Email : <input type="email" value={{i[5]}} name="email"><br><br>
+    Total : <input type="number"  value={{i[8]}} name= "total"><br><br>
+
+     <a href="{{ url_for('collegeupdate',id=i[0]) }}"> <button type="button">Update</button></a>
+    {% endfor %}
+</form>
+</body>
+</html>

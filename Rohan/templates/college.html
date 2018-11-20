@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>College</title>
+</head>
+<br>
+<body>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<p align="right"><a href="{{url_for('logout')}}"><button type="button">Logout</button></a></p><br><br>
+
+
+<form method="POST" action="">
+
+<center>
+
+    <br><br>
+    College Id : <input type="number" name="id"required maxlength="10" autofocus="autofocus">
+    <br><br>
+    Password : <input type="password" name="pass"required maxlength="15">
+    <br><br>
+    <button type="submit">Login</button><br><br>
+
+
+</center>
+</form>
+</body>
+<center><a href="{{url_for('colfor')}}"><button type="button">Forget</button></a></center>
+</html>

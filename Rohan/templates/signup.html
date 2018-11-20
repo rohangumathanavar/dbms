@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>signup</title>
+	 <link rel="stylesheet" href="EX.css">
+
+</head>
+<br><br><br>
+<body>
+<center><h3>Student Signup</h3><center>
+
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<form method="POST" action="">
+    <center>
+        CET Roll No : <input type="text" name="roll"required maxlength="5" autofocus="autofocus" minlength="5"><br><br>
+               Name : <input type="text" name="name"required maxlength="30"><br><br>
+           Password : <input type="password" name="pas"required maxlength="10" ><br><br>
+          Phone No  : <input type="tel" name="ph"required maxlength="10" minlength="10" pattern="[7-9]{1}[0-9]{9}"><br><br>
+           email ID : <input type="email" name="email"required maxlength="50"><br><br>
+        CET Ranking : <input type="number" name="cet"required maxlength="10"><br><br>
+        Enter the Queston : <input type="text" name="que" required maxlength="30"><br><br>
+        Enter the Answer :<input type="text" name="ans" required maxlength="30"><br><br>
+            <button type="submit">Submit</button>
+
+    </center>
+</form>
+</body>
+</html>

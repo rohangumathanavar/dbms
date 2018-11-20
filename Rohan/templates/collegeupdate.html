@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>college_update</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<p align="right"><a href="{{url_for('logout')}}"><button type="button">Logout</button></a></p><br><br>
+<form action=""method="post">
+    {% for i in data %}
+    Email : <input type="email" name="email" value={{i[5]}} autofocus="autofocus"><br><br>
+    Mobile Phno no : <input type="number" name="phno" value={{i[4]}} required maxlength="10" minlength="10" pattern="[7-9]{1}[0-9]{9}"><br><br>
+    Password : <input type="text" name="pass" value={{i[2]}}><br><br>
+    {% endfor %}
+    <button type="submit">OK</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<p align="right"><a href="{{url_for('logout')}}"><button type="button">Logout</button></a></p><br><br>
+<a href="{{url_for('addcollege')}}"> <button type="button">Add college</button></a>
+<form method="post" action="">
+    <center>
+College-Id : <input type="text" name="col" value={{id}}><br><br>
+    <button type="submit" >Search</button>
+        </center>
+    <table>
+        <tr>
+            <th>cid</th>
+            <th>cname</th>
+            <th>loca</th>
+            <th>phno</th>
+            <th>email</th>
+        </tr>
+        {% for i in data %}
+        <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[3]}}</td>
+        <td>{{i[4]}}</td>
+        <td>{{i[5]}}</td>
+            <td><a href="{{url_for('collegeupdate',id=i[0])}}"><button type="button">Update</button></a></td>
+                <td><a href="{{url_for('collegedelete',id=i[0])}}"><button type="button">Delete</button></a></td>
+            <td><a href="{{url_for('branchupdate',id=i[0])}}"><button type="button">Seats Update</button></a> </td>
+            <td><a href="{{url_for('view',id=i[0])}}"><button type="button">View</button></a> </td>
+        </tr>
+            {% endfor %}
+
+    </table>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>addbranch</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<p align="right"><a href="{{url_for('logout')}}"><button type="button">Logout</button></a></p><br><br>
+<form action="" method="post">
+    college id : <input type="number" required name=id value="{{id}}" maxlength="10"><br><br>
+    Branch-Name : <input type="text" name="bname" required maxlength="40"><br><br>
+    Seats : <input type="number" required name="seats" maxlength="10"><br><br>
+    Cutoff : <input type="number" required name="cutoff" maxlength="20"><br><br>
+    Fees : <input type="number" maxlength="20" name="fees" required><br><br>
+    <button type="submit">Submit</button>
+
+</form>
+
+</body>
+</html>

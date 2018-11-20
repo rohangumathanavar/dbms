@@ -1,0 +1,45 @@
+<html>
+<body>
+<center><h3>College Selection</h3></center>
+
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<a href="{{url_for('myhome',roll=roll)}}"><button type="button">MyHome</button></a><br>
+<p align="right"><a href="{{url_for('logout')}}"><button type="button">Logout</button></a></p><br>
+<form action="" method="POST">
+Location : <input type="text" value={{loc}} name="loct" maxlength=""><br><br>
+Branch : <input type="text" value="{{branch}}" name="clg" maxlength="10"><br><br>
+	<button type="submit">Search</button>
+<br>Roll No : {{roll}}<br>
+	<table>
+		<tr>
+			<th>College-Id</th>
+			<th>College Name</th>
+			<th>Location</th>
+			<th>Branch</th>
+			<th>Seats</th>
+			<th>Cut off</th>
+			<th>Fees</th>
+		</tr>
+		{% for i in res %}
+		<tr>
+			<td>{{i[0]}}</td>
+			<td>{{i[1]}}</td>
+			<td>{{i[2]}}</td>
+			<td>{{i[3]}}</td>
+			<td>{{i[4]}}</td>
+			<td>{{i[6]}}</td>
+			<td>{{i[5]}}</td>
+			<td><a href="{{url_for('join',roll=roll,cid=i[0],bname=i[3]) }}"> <button type="button">Join</button></a></td>
+			{% endfor %}
+		</tr>
+	</table>
+<a href="{{url_for('studentupdate',roll=roll) }}"><button type="button"> Update</button></a>
+</form>
+</body>
+</html>

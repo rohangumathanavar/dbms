@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>adminall</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<p align="right"><a href="{{url_for('logout')}}"><button type="button">Logout</button></a></p><br><br>
+
+WelCome {{aname}}<br><br>
+     <a href="{{url_for('adminstudent',id='all')}}"> <button type="button">Student</button></a><br><br>
+    <a href="{{url_for('admincollege',id='all')}}"> <button type="button">College</button></a><br><br>
+    <a href="{{url_for('admincet')}}"> <button type="button">CET-RANK</button></a><br><br>
+</body>
+</html>

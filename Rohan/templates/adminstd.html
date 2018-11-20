@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>adminaddstudent</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<p align="right"><a href="{{url_for('logout')}}"><button type="button">Logout</button></a></p><br><br>
+<form action="" method="post">
+    Cet Roll no : <input type="text" name="rol" required maxlength="20" autofocus="autofocus"><br><br>
+    Name : <input type="text" name="name" required maxlength="40"><br><br>
+    Rank : <input type="number" maxlength="10" required name="rank"><br><br>
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
