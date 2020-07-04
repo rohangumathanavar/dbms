@@ -21,7 +21,7 @@ mysqlclient==1.4.4
 nbformat==5.0.7
 pigar==0.10.0
 PyMySQL==0.9.3
-pypiwin32==223
+
 pyrsistent==0.16.0
 
 requests==2.24.0
