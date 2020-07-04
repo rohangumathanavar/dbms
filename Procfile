@@ -1,0 +1,1 @@
+web: gunicorn dbms:dbms --log-file -
