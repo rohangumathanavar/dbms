@@ -23,7 +23,7 @@ pigar==0.10.0
 PyMySQL==0.9.3
 pypiwin32==223
 pyrsistent==0.16.0
-pywin32==228
+
 requests==2.24.0
 selenium==3.141.0
 six==1.15.0
